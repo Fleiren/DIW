@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://vjs.zencdn.net/8.23.4/video-js.css" rel="stylesheet" />
+    <script src="https://vjs.zencdn.net/8.23.4/video.min.js"></script>
+    <title>Blog 3</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body{
+            margin: 0;
+            background-color: #f9f9f9;
+        }
+        header{
+            background-color: lightpink;
+            color: rgb(128, 63, 74);
+            text-align: center;
+            padding: 10px;
+        }
+        nav{
+            background-color: lightpink;
+            align-content: center;
+            align-items: center;
+            border-top: 2px dotted  rgb(128, 63, 74) ;
+            padding: 20px;
+            display: flex;              
+            justify-content: center;    
+            align-items: center;
+        }
+
+        nav a{
+            display: inline-block;
+            text-decoration: none;
+            font-weight: bold;
+            color: rgb(128, 63, 74);
+            transition: transform 0.2s;
+        }
+
+        nav a:hover{
+            color: rgb(92, 46, 54);
+            transform: scale(1.15);
+        }
+
+        ul{
+            list-style: none;
+            display: flex;
+            flex-direction: row;
+            gap: 20px;
+            
+        }
+        main{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            gap: 10px;
+            font-size: larger;
+        }
+        #controles{
+            border-bottom: 2px dotted black;
+            padding-bottom: 10px;
+        }
+        button{
+            background-color: lightpink;
+            border-radius: 5px;
+            padding:2px;
+        }
+        button:hover{
+            background-color: rgb(247, 216, 221);
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Práctica tema 2</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="index.html">Índice</a></li>
+            <li><a href="imagen.html">Imagen</a></li>
+            <li><a href="formulario.html">Formulario</a></li>
+            <li><a href="blog3.html">Blog 3</a></li>
+        </ul>
+    </nav>
+    <main>
+        <video id="videoTom" width="auto" height="500px" class="video-js vjs-default-skin" preload="auto" data-setup="{}" >
+            <source src="tomOdell.mp4" type="video/mp4" />
+            Tu navegador no soporta el elemento <code>video</code>.
+        </video>
+        <div id="controles">
+            <button id="reiniciar">Reiniciar</button>
+            <button id="retrasar">Retrasar</button>
+            <button id="adelantar">Adelantar</button>
+            <button id="silenciar">Silenciar</button>
+            <button id="bajar">Bajar volumen</button>
+            <button id="subir">Subir volumen</button>
+        </div>
+
+        <video id="videoCortado"  width="auto" height="500px" class="video-js vjs-default-skin" preload="auto" data-setup="{}" controls>
+            <source src="tomOdell2.mp4#t=2,7" type="video/mp4">
+        </video>
+    </main>
+    <script>
+    const controles = document.getElementById("controles");
+    const video = document.getElementById("videoTom");
+    controles.addEventListener("click", (evento) => {
+        if(evento.target.id === "reiniciar"){
+            video.currentTime = 0;
+            video.play();
+        }
+        if(evento.target.id === "retrasar"){
+            if(video.currentTime >= 0.5 )
+            video.currentTime -= 0.5;
+        }
+        if(evento.target.id === "adelantar"){
+            if(video.currentTime <= 22.5 )
+            video.currentTime += 0.5;
+        }
+        if(evento.target.id === "silenciar") video.muted = !video.muted;
+        if(evento.target.id === "bajar"){
+            if(video.volume !== 0){
+                video.volume -= 0.1;
+            }
+        }
+        if(evento.target.id === "subir") {
+            if(video.volume !== 1){
+                video.volume += 0.1;
+            }
+        }
+    }, false)
+
+    //Lo de #t=2,7 con video.js no funciona y algunos navegadores no lo reconocen bien.
+    const video2 = document.getElementById('videoCortado');
+
+    const startTime = 2; 
+    const endTime = 7;    
+
+    video2.addEventListener('loadedmetadata', () => {
+        video2.currentTime = startTime;
+    });
+
+    video2.addEventListener('timeupdate', () => {
+        if(video2.currentTime >= endTime){
+            video2.pause(); 
+            video2.currentTime = startTime; 
+        }
+    });
+  </script>
+</body>
+</html>

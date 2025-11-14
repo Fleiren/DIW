@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Imagen</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body{
+            margin: 0;
+            background-color: #f9f9f9;
+        }
+        header{
+            background-color: lightpink;
+            color: rgb(128, 63, 74);
+            text-align: center;
+            padding: 10px;
+        }
+        nav{
+            background-color: lightpink;
+            align-content: center;
+            align-items: center;
+            border-top: 2px dotted  rgb(128, 63, 74) ;
+            padding: 20px;
+            display: flex;              
+            justify-content: center;    
+            align-items: center;
+        }
+
+        nav a{
+            display: inline-block;
+            text-decoration: none;
+            font-weight: bold;
+            color: rgb(128, 63, 74);
+            transition: transform 0.2s;
+        }
+
+        nav a:hover{
+            color: rgb(92, 46, 54);
+            transform: scale(1.15);
+        }
+
+        ul{
+            list-style: none;
+            display: flex;
+            flex-direction: row;
+            gap: 20px;
+            
+        }
+        main{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            gap: 10px;
+            font-size: larger;
+        }
+        .pulpo{
+            display: block;       
+            width:50%; 
+            height: auto;
+            margin: 0 auto;
+        }
+        .pulpo img {
+            width: 100%;
+            height: auto;
+            display: block;       
+        }
+        figcaption{
+            font-size: smaller;
+            
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Práctica tema 2</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="index.html">Índice</a></li>
+            <li><a href="imagen.html">Imagen</a></li>
+            <li><a href="formulario.html">Formulario</a></li>
+            <li><a href="blog3.html">Blog 3</a></li>
+        </ul>
+    </nav>
+    <main>
+
+        <figure class="pulpo">
+            <picture>
+                <!--Deberían ser distintas imágenes-->
+                <source media="(min-width: 1200px)" srcset="pulpo-1200.jpg" type="image/jpeg">
+                <source media="(min-width: 800px)" srcset="pulpo-800.jpg" type="image/jpeg">
+                <source media="(min-width: 420px)" srcset="pulpo-420.jpg" type="image/jpeg">
+                <img src="pulpo-420.jpg" alt="Imagen del pulpo perla">
+                <!--<p>Ha ocurrido un error.</p> (Si coloco esto se muestra siempre, he visto que los navegadores no lo ignoran de forma confiable y que es mejor no usarlo para mensajes de error.)-->
+            </picture>
+            <figcaption>Pulpo perla nadando en aguas abiertas.<br>Esta especie es conocida por su inteligencia y por cuidar intensamente de sus huevos.</figcaption>
+        </figure>
+        <audio controls autoplay loop>
+            <source src="photograph.mp3" type="audio/mp3">
+            Tu navegador no soporta la reproducción de audio.
+        </audio>
+        
+    </main>
+</body>
+</html>

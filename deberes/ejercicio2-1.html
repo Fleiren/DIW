@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicios 2-1</title>
+</head>
+<body>
+    <h1>Ejercicio 1 de la parte 2.</h1>
+    <p>El atributo <b>spreadMethod</b> se utiliza para definir cómo se rellena el área del gradiente una vez se repite fuera del rango definido</p>
+    <section>
+        <h2>Pad</h2>
+        <p>Alarga el último color hasta el final.</p>
+        <svg width="300" height="100">
+            <defs>
+            <linearGradient id="pastelPad" spreadMethod="pad" gradientUnits="userSpaceOnUse" X1="0" y1="0" x2="150" y2="0">
+                <stop offset="10%" stop-color="lightpink" />
+                <stop offset="35%" stop-color="lightgreen" />
+                <stop offset="60%" stop-color="lightblue" />
+                <stop offset="85%" stop-color="lightyellow" />
+                <stop offset="100%" stop-color="lightsalmon" />                    
+            </linearGradient>
+            </defs>
+            <rect  fill="url(#pastelPad)" width="300" height="100"></rect>
+        </svg>
+    </section>
+    <section>
+        <h2>Reflect</h2>
+        <p>Genera el gradiente otra vez pero como si estuviera reflejado en un espejo.</p>
+        <svg width="300" height="100">
+            <defs>
+                <linearGradient id="pastelReflect" spreadMethod="reflect" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="150" y2="0">
+                    <stop offset="10%" stop-color="lightpink" />
+                    <stop offset="35%" stop-color="lightgreen" />
+                    <stop offset="60%" stop-color="lightblue" />
+                    <stop offset="85%" stop-color="lightyellow" />
+                    <stop offset="100%" stop-color="lightsalmon" />
+                </linearGradient>
+            </defs>
+            <rect fill="url(#pastelReflect)" width="300" height="100"></rect>
+        </svg>
+        
+    </section>
+
+    <section>
+        <h2>Repeat</h2>
+        <p>Se repite el patrón.</p>
+        <svg width="300" height="100">
+            <defs>
+                <linearGradient id="pastelRepeat" spreadMethod="repeat" gradientUnits="userSpaceOnUse" x1="0" x2="150">
+                    <stop offset="10%" stop-color="lightpink" />
+                    <stop offset="35%" stop-color="lightgreen" />
+                    <stop offset="60%" stop-color="lightblue" />
+                    <stop offset="85%" stop-color="lightyellow" />
+                    <stop offset="100%" stop-color="lightcoral" />
+                </linearGradient>
+            </defs>
+            <rect fill="url(#pastelRepeat)" width="300" height="100"></rect>
+        </svg>
+    </section>
+    
+    
+
+</body>
+</html>

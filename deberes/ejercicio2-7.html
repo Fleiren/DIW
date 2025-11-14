@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicios 2-7</title>
+</head>
+<body>
+    <h1>Ejercicio 7 de la parte 2.</h1>
+    <svg width="800" height="800">
+        <defs>
+            <pattern id="imagenPulpos" patternUnits="userSpaceOnUse" width="50" height="50">
+                <image xlink:href="pulpo-420.jpg" width="50" height="50"></image>
+            </pattern>
+            <pattern id="figurasVarias" patternUnits="userSpaceOnUse" width="50" height="50">
+                <circle cx="5" cy="5" r="5" stroke="pink" stroke-width="2" fill="gray"></circle>
+                <ellipse cx="15" cy="4" rx="5" ry="3" fill="green"></ellipse>
+                <polygon points="20,1 24,10 26,1" stroke="pink" fill="gray"></polygon>
+                <polyline points="20,10 24,20 26,10" stroke="pink" fill="gray"></polyline>
+            </pattern>
+        </defs>
+        
+        <rect fill="url(#imagenPulpos)" width="200" height="200"></rect>
+        
+        <rect fill="url(#figurasVarias)" width="200" height="200" x="400"></rect>
+
+    </svg>
+</body>
+</html>

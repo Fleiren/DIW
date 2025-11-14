@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body{
+            margin: 0;
+            background-color: #f9f9f9;
+        }
+        header{
+            background-color: lightpink;
+            color: rgb(128, 63, 74);
+            text-align: center;
+            padding: 10px;
+        }
+        nav{
+            background-color: lightpink;
+            align-content: center;
+            align-items: center;
+            border-top: 2px dotted  rgb(128, 63, 74) ;
+            padding: 20px;
+            display: flex;              
+            justify-content: center;    
+            align-items: center;
+        }
+
+        nav a{
+            display: inline-block;
+            text-decoration: none;
+            font-weight: bold;
+            color: rgb(128, 63, 74);
+            transition: transform 0.2s;
+        }
+
+        nav a:hover{
+            color: rgb(92, 46, 54);
+            transform: scale(1.15);
+        }
+
+        ul{
+            list-style: none;
+            display: flex;
+            flex-direction: row;
+            gap: 20px;
+            
+        }
+        main{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            gap: 10px;
+            font-size: larger;
+        }
+        fieldset{
+            font-size: medium;
+            display: flex;
+            flex-direction: column;
+            padding: 20px;
+            gap: 10px;
+            background-color: rgb(249, 214, 219);
+        }
+        form{
+            /*Perdón por tanto css es que quiero practicarlo*/
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: 1fr auto;
+            grid-template-areas: 
+            "personal interes"
+            "boton boton";
+            gap: 20px;
+            border: 1px solid black;
+            border-radius: 5px;
+            padding: 30px;
+            background-color: rgb(251, 201, 208);
+        }
+        #personal{
+            grid-area: personal;
+        }
+        #interes{
+            grid-area: interes;
+        }
+        #enviar{
+            grid-area: boton;
+        }
+        input{
+            padding: 5px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Práctica tema 2</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="index.html">Índice</a></li>
+            <li><a href="imagen.html">Imagen</a></li>
+            <li><a href="formulario.html">Formulario</a></li>
+            <li><a href="blog3.html">Blog 3</a></li>
+        </ul>
+    </nav>
+    <main>
+        <form action="#">
+            <fieldset id="personal">
+                <legend>Datos personales</legend>
+                <label for="inputNombre">Nombre: </label>
+                <input type="text" name="nombre" id="inputNombre" placeholder="Introduce tu nombre." pattern="[^0-9]+" title="El nombre no puede contener números." autofocus required>
+                <label for="inputEmail">Correo Electrónico: </label>
+                <input type="email" name="email" id="inputEmail" placeholder="Introduce tu correo electrónico." required>
+                <label for="inputUrl">URL: </label>
+                <input type="url" name="url" id="inputUrl" placeholder="Escribe la URL de tu página personal.">
+                <label for="inputFechaNacimiento">Fecha y hora de nacimiento: </label>
+                <input type="datetime-local" name="fechaNacimiento" id="inputFechaNacimiento">
+                <label for="inputTelefono">Teléfono: </label>
+                <input type="tel" name="telefono" id="inputTelefono" placeholder="Introduce tu número de teléfono" pattern="[0-9]{9}" title="El número de teléfono solo puede contener números y debe tener 9 dígitos.">
+                <label for="inputColor">Color Favorito: </label>
+                <input type="color" name="color" id="inputColor">
+            </fieldset>
+            <fieldset id="interes">
+                <legend>Datos de interes</legend>
+                <label for="inputFecha">Fecha: </label>
+                <input type="date" name="fecha" id="inputFecha">
+                <label for="inputTiempo">Tiempo: </label>
+                <input type="time" name="tiempo" id="inputTiempo">
+                <label for="inputMes">Mes: </label>
+                <input type="month" name="mes" id="inputMes">
+                <label for="inputSemana">Semana: </label>
+                <input type="week" name="semana" id="inputSemana">
+                <label for="inputNumero">Número: </label>
+                <input type="number" name="numero" id="inputNumero" min="-10" max="10" step="1" value="0">
+                <label for="inputIntervalo">Intervalo: </label>
+                <input type="range" name="intervalo" id="inputIntervalo" min="0" max="10" step="1" value="0"><output id="valorIntervalo" for="inputIntervalo">0</output>
+                <label for="inputBusqueda">Término de búsqueda: </label>
+                <input type="search" name="busqueda" id="inputBusqueda">
+            </fieldset>
+            <input type="submit" id="enviar" value="Enviar">
+        </form>
+    </main>
+    <script>
+        const valorIntervalo = document.getElementById("inputIntervalo");
+        const output = document.getElementById("valorIntervalo");
+
+        valorIntervalo.addEventListener("input", (evento) =>{
+            output.value = evento.target.value;
+        }, false)
+    </script>
+</body>
+</html>
